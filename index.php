@@ -48,9 +48,35 @@ $f3->route('GET /menus/dinner', function(){
     echo $view->render('views/dinner-menu.html');
 });
 
+//define a route for order1
+$f3->route('GET|POST /order1', function($f3){
+    //echo '<h1>My Breakfast Menu!</h1>';
 
+    //if the form has been posted
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
+//        echo "<p> you got here using the POST method</p>";
+//        var_dump($_POST);
 
+        $food = $_POST['food'];
+        $meal = $_POST['meal'];
+        if(true){
+            $f3->set('SESSION.food', $food);
+            $f3->set('SESSION.meal', $meal);
+        }
+    }
+    //render a view page
+    $view = new Template();
+    echo $view->render('views/order1.html');
+});
 
+//define a route for order1
+$f3->route('GET /order2', function(){
+    //echo '<h1>My Breakfast Menu!</h1>';
+
+    //render a view page
+    $view = new Template();
+    echo $view->render('views/order2.html');
+});
 
 
 //run fat free
