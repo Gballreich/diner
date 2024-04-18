@@ -18,5 +18,16 @@ $f3->route('GET /', function(){
     echo $view->render('views/home.html');
 });
 
+//define a route for breakfast menu
+//route is what you defined in home.html
+//the key is in home.htlm, the route is the value
+$f3->route('GET /menus/breakfast', function(){
+    echo '<h1>My Breakfast Menu!</h1>';
+
+//    //render a view page
+//    $view = new Template();
+//    echo $view->render('views/home.html');
+});
+
 //run fat free
 $f3->run();
